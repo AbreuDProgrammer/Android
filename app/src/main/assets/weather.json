@@ -1,0 +1,43 @@
+{
+  "coord":{
+    "lon":-81.3792,
+    "lat":28.5383
+  },
+  "weather":[
+    {
+      "id":800,
+      "main":"Clear",
+      "description":"clear sky",
+      "icon":"01d"
+    }
+  ],
+  "base":"stations",
+  "main":{
+    "temp":296,
+    "feels_like":296.85,
+    "temp_min":293.63,
+    "temp_max":297.06,
+    "pressure":1010,
+    "humidity":96
+  },
+  "visibility":10000,
+  "wind":{
+    "speed":3.6,
+    "deg":20
+  },
+  "clouds":{
+    "all":0
+  },
+  "dt":1685705412,
+  "sys":{
+    "type":2,
+    "id":2081911,
+    "country":"US",
+    "sunrise":1685701693,
+    "sunset":1685751544
+  },
+  "timezone":-14400,
+  "id":4167147,
+  "name":"Orlando",
+  "cod":200
+}

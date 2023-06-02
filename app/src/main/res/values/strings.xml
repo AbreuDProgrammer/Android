@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application Android 2023</string>
+    <string name="ola">Olá</string>
+    <string name="btn">Clique aqui!</string>
+    <string name="txt2">Main 2</string>
+    <string name="pag1">Go back</string>
+</resources>
