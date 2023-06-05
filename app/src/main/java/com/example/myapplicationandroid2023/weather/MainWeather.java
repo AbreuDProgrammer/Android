@@ -3,6 +3,7 @@ package com.example.myapplicationandroid2023.weather;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -47,6 +48,12 @@ public class MainWeather extends Activity {
             }
 
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.e("Response", ""+server_response);
         }
 
         private String readStream(InputStream in) {
