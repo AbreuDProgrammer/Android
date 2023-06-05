@@ -20,6 +20,7 @@ public class MainWeather extends Activity {
         super.onCreate(savedInstanceState);
         // AsyncTask<String, Void, String>
         new GetMethodWeather().execute("https://api.openweathermap.org/data/2.5/weather?q=orlando&appid=6982674c31ec74257effdf914b517549");
+
     }
 
     public class GetMethodWeather extends AsyncTask<String, Void, String> {

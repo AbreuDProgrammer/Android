@@ -4,4 +4,5 @@
     <string name="btn">Clique aqui!</string>
     <string name="txt2">Main 2</string>
     <string name="pag1">Go back</string>
+    <string name="chk_weather">Check weather</string>
 </resources>
