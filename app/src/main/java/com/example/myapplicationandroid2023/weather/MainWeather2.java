@@ -1,6 +1,8 @@
 package com.example.myapplicationandroid2023.weather;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,11 +64,21 @@ public class MainWeather2 extends Activity implements View.OnClickListener {
         @Override
         protected Weather doInBackground(String... strings) {
             Weather weather = new Weather();
-            JsonObject jsonObject = JsonObject.readFrom(loadJSONFromAsset());
+            /**
+             * Local assets:
+             * JsonObject jsonObject = JsonObject.readFrom(loadJSONFromAsset());
+             */
+            /**
+             * Creating the variable:
+             * WeatherHttpClient client = new WeatherHttpClient();
+             * String data = client.getWeatherData(strings[0]);
+             */
+            String data = (new WeatherHttpClient()).getWeatherData(strings[0]);
+            JsonObject jsonObject = JsonObject.readFrom(data);
             JsonArray weatherArray = jsonObject.get("weather").asArray();
             weather.setId(weatherArray.get(0).asObject().get("id").asInt());
             weather.setIcon(weatherArray.get(0).asObject().get("icon").asString());
-            //weather.iconData =
+            weather.setIconData((new WeatherHttpClient()).getImage(weather.getIcon()));
             weather.setTemp(jsonObject.get("main").asObject().get("temp").asFloat());
             weather.setHumidity(jsonObject.get("main").asObject().get("humidity").asFloat());
             weather.setTemp_min(jsonObject.get("main").asObject().get("temp_min").asFloat());
@@ -78,7 +90,8 @@ public class MainWeather2 extends Activity implements View.OnClickListener {
         protected void onPostExecute(Weather weather) {
             super.onPostExecute(weather);
             if(weather.getIcon() != null &&weather.getIcon().length() > 0) {
-
+                Bitmap img = BitmapFactory.decodeByteArray(weather.getIconData(), 0, weather.getIconData().length);
+                imageWeather.setImageBitmap(img);
             }
             tv1.setText("Description: "+weather.getDescription());
             tv2.setText("Temperature: "+toCelsious(weather.getTemp()));
