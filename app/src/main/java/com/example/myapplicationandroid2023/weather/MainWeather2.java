@@ -51,12 +51,12 @@ public class MainWeather2 extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if(view == submitButton)
-            this.checkWeather(view);
+            this.checkWeather();
     }
 
-    private void checkWeather(View view) {
+    private void checkWeather() {
         JSONWeatherTask task = new JSONWeatherTask();
-        task.execute();
+        task.execute(new String[]{editCity.getText().toString()});
     }
 
     private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
@@ -76,6 +76,7 @@ public class MainWeather2 extends Activity implements View.OnClickListener {
             String data = (new WeatherHttpClient()).getWeatherData(strings[0]);
             JsonObject jsonObject = JsonObject.readFrom(data);
             JsonArray weatherArray = jsonObject.get("weather").asArray();
+            Log.i("jsonArray", String.valueOf(weatherArray));
             weather.setId(weatherArray.get(0).asObject().get("id").asInt());
             weather.setIcon(weatherArray.get(0).asObject().get("icon").asString());
             weather.setIconData((new WeatherHttpClient()).getImage(weather.getIcon()));
@@ -90,7 +91,11 @@ public class MainWeather2 extends Activity implements View.OnClickListener {
         protected void onPostExecute(Weather weather) {
             super.onPostExecute(weather);
             if(weather.getIcon() != null &&weather.getIcon().length() > 0) {
-                Bitmap img = BitmapFactory.decodeByteArray(weather.getIconData(), 0, weather.getIconData().length);
+                Bitmap img = BitmapFactory.decodeByteArray(
+                    weather.getIconData(),
+                    0,
+                    weather.getIconData().length
+                );
                 imageWeather.setImageBitmap(img);
             }
             tv1.setText("Description: "+weather.getDescription());
