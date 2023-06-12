@@ -5,4 +5,7 @@
     <string name="txt2">Main 2</string>
     <string name="pag1">Go back</string>
     <string name="chk_weather">Check weather</string>
+    <string name="broadcast_receiver_api">BROADCAST_RECEIVER_API</string>
+    <string name="broadcast_receiver_start_activity">BROADCAST_RECEIVER_START_ACTIVITY</string>
+    <string name="broadcast_receiver_read_phone_state">BROADCAST_RECEIVER_READ_PHONE_STATE</string>
 </resources>
