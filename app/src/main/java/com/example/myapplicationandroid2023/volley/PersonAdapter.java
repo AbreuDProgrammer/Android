@@ -21,7 +21,7 @@ public class PersonAdapter extends ArrayAdapter<Person> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Context context = parent.getContext();
-        if(context == null)
+        if(convertView == null)
             convertView = LayoutInflater.from(context).inflate(LAYOUT, null);
         NetworkImageView img = (NetworkImageView) convertView.findViewById(R.id.img);
         TextView txt = (TextView) convertView.findViewById(R.id.txtName);
