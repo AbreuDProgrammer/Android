@@ -9,6 +9,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/btnAlarm"
+        android:text="@string/broadcast_receiver_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
         android:id="@+id/btn2"
         android:text="@string/broadcast_receiver_start_activity"
         android:layout_width="wrap_content"
